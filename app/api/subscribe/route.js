@@ -1,7 +1,5 @@
 import { google } from "googleapis";
 import { NextResponse } from "next/server";
-import dotenv from "dotenv";
-dotenv.config();
 
 export async function POST(request) {
   try {
@@ -13,11 +11,6 @@ export async function POST(request) {
         { status: 400 }
       );
     }
-
-    console.log("Private key format:", {
-      firstChars: process.env.GOOGLE_PRIVATE_KEY?.substring(0, 50),
-      length: process.env.GOOGLE_PRIVATE_KEY?.length,
-    });
 
     // Create auth client using environment variables
     const auth = new google.auth.GoogleAuth({
