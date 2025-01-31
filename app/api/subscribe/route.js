@@ -14,11 +14,16 @@ export async function POST(request) {
       );
     }
 
+    console.log("Private key format:", {
+      firstChars: process.env.GOOGLE_PRIVATE_KEY?.substring(0, 50),
+      length: process.env.GOOGLE_PRIVATE_KEY?.length,
+    });
+
     // Create auth client using environment variables
     const auth = new google.auth.GoogleAuth({
       credentials: {
         client_email: process.env.GOOGLE_CLIENT_EMAIL,
-        private_key: process.env.GOOGLE_PRIVATE_KEY,
+        private_key: process.env.GOOGLE_PRIVATE_KEY?.replace(/\\n/g, "\n"),
         project_id: process.env.GOOGLE_PROJECT_ID,
       },
       scopes: ["https://www.googleapis.com/auth/spreadsheets"],
