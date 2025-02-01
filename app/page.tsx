@@ -228,7 +228,7 @@ export default function Home() {
               <div className="mt-8 flex items-center justify-center gap-x-6 flex-col md:flex-row">
                 <div className="flex items-center flex-col md:flex-row mt-8 md:mb-0">
                   <i className="fas fa-lock text-green-400 mr-2"></i>
-                  <span className="text-white">Secure and well-protected</span>
+                  <span className="text-white">Secure and Well-protected</span>
                 </div>
                 <div className="flex items-center flex-col md:flex-row mt-8 md:mb-0">
                   <i className="fas fa-bolt text-yellow-400 mr-2"></i>
