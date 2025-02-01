@@ -91,8 +91,8 @@ export default function Home() {
               Level Up Your Table Tennis Club with Choley!
             </h1>
             <p className="mb-8 text-xl text-gray-200">
-              Seamlessly manage players, organize tournaments, and track
-              results—all in one place.
+              Seamlessly manage players, organize tournaments, and track results
+              — all in one place.
             </p>
             <div className="flex max-w-md gap-4">
               <Input
@@ -113,7 +113,7 @@ export default function Home() {
               Be among the first clubs to experience Choley
             </p>
           </div>
-          <div className="relative w-[300px] h-[600px]">
+          <div className="relative w-[300px] h-[600px] lg:block hidden">
             <div className="absolute inset-0 bg-black rounded-[32px] shadow-2xl">
               <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[120px] h-[25px] bg-black rounded-b-[20px]"></div>
               <div className="absolute inset-[8px] bg-black rounded-[24px] overflow-hidden">
@@ -121,8 +121,8 @@ export default function Home() {
                   src="/app-screenshot.png"
                   alt="Choley App Screenshot"
                   className="h-full w-full object-cover"
-                  width={284}
-                  height={584}
+                  width={400}
+                  height={768}
                 />
               </div>
             </div>
@@ -197,8 +197,7 @@ export default function Home() {
                     className="bg-white/90 border-none text-sm"
                   />
                 </div>
-                <div className="flex gap-4">
-                  {/* <div className="relative flex-1"> */}
+                <div className="flex gap-4 flex-col md:flex-row">
                   <Select
                     onValueChange={(value) => setPosition(value)}
                     value={position}
@@ -211,7 +210,6 @@ export default function Home() {
                       <SelectItem value="admin">Club Admin</SelectItem>
                     </SelectContent>
                   </Select>
-                  {/* </div> */}
                   <Input
                     type="email"
                     placeholder="Enter your email"
@@ -227,12 +225,12 @@ export default function Home() {
                   Join Waitlist
                 </Button>
               </div>
-              <div className="mt-8 flex items-center justify-center gap-x-6">
-                <div className="flex items-center">
+              <div className="mt-8 flex items-center justify-center gap-x-6 flex-col md:flex-row">
+                <div className="flex items-center flex-col md:flex-row mt-8 md:mb-0">
                   <i className="fas fa-lock text-green-400 mr-2"></i>
-                  <span className="text-white">Enterprise-grade Security</span>
+                  <span className="text-white">Secure and well-protected</span>
                 </div>
-                <div className="flex items-center">
+                <div className="flex items-center flex-col md:flex-row mt-8 md:mb-0">
                   <i className="fas fa-bolt text-yellow-400 mr-2"></i>
                   <span className="text-white">Lightning Fast</span>
                 </div>
