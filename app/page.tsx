@@ -19,6 +19,7 @@ export default function Home() {
   const [email, setEmail] = useState("");
   const [position, setPosition] = useState("");
   const [feedback, setFeedback] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
 
   const handleSubmit = async (e: React.FormEvent<HTMLButtonElement>) => {
@@ -37,12 +38,14 @@ export default function Home() {
     }
 
     try {
+      setIsLoading(true);
       const res = await fetch("/api/subscribe", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, position, feedback }),
       });
       const data = await res.json();
+      setIsLoading(false);
 
       if (res.ok) {
         // Clear all inputs
@@ -104,9 +107,10 @@ export default function Home() {
               />
               <Button
                 onClick={handleSubmit}
+                disabled={isLoading}
                 className="!rounded-button bg-red-600 hover:bg-red-700 whitespace-nowrap"
               >
-                Join Waitlist
+                {isLoading ? "Joining..." : "Join Waitlist"}
               </Button>
             </div>
             <p className="mt-4 text-sm text-gray-300">
@@ -220,9 +224,10 @@ export default function Home() {
                 </div>
                 <Button
                   onClick={handleSubmit}
+                  disabled={isLoading}
                   className="!rounded-button bg-red-600 hover:bg-red-700 whitespace-nowrap self-center"
                 >
-                  Join Waitlist
+                  {isLoading ? "Joining..." : "Join Waitlist"}
                 </Button>
               </div>
               <div className="mt-8 flex items-center justify-center gap-x-6 flex-col md:flex-row">
